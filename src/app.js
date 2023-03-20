@@ -48,9 +48,17 @@ function showData(response) {
 
   precipitationElement.innerHTML = Math.round(response.data.main.temp);
 }
+function search(city) {
+  let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showData);
+}
 
-let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
-let city = "germany";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function submit(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#city-input");
+  search(cityElement.value);
+}
 
-axios.get(apiUrl).then(showData);
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", submit);
