@@ -31,7 +31,7 @@ function showData(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  let precipitationElement = document.querySelector("#precipitation");
+  //let precipitationElement = document.querySelector("#precipitation");
 
   celsiusTemp = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(celsiusTemp);
@@ -46,7 +46,7 @@ function showData(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  precipitationElement.innerHTML = Math.round(response.data.main.temp);
+   //precipitationElement.innerHTML = Math.round(response.data.main.temp);
 }
 function search(city) {
   let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
@@ -89,3 +89,5 @@ fahrenheitElement.addEventListener("click", showFahrenheitTemp);
 
 let celsiusElement = document.querySelector("#celsius");
 celsiusElement.addEventListener("click", showcelsiusTemp);
+
+search("New York");
