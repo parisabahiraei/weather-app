@@ -31,8 +31,6 @@ function showData(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  //let precipitationElement = document.querySelector("#precipitation");
-
   celsiusTemp = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(celsiusTemp);
   cityElement.innerHTML = response.data.name;
@@ -44,9 +42,8 @@ function showData(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
-   //precipitationElement.innerHTML = Math.round(response.data.main.temp);
 }
 function search(city) {
   let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
